@@ -1,2 +1,2 @@
-# CChat
-Advanced chat moderation plugin for Project Poseidon
+# PortalTrade
+For rainbowsheep
