@@ -22,6 +22,8 @@ public class PortalTrade extends JavaPlugin implements Listener {
 
     private static PortalTrade instance;
 
+    public static final int RECIPES = 3;
+
     private HashMap<Location, HashMap<Material, Integer>> itemCounts = new HashMap<>();
 
     private HashMap<Material, Integer> getCountsForLocation(Location loc) {
@@ -95,7 +97,7 @@ public class PortalTrade extends JavaPlugin implements Listener {
             }
         }
 
-        if (counts.get(Material.REDSTONE) == 6 && counts.get(Material.DIAMOND) == 6 && counts.get(Material.YELLOW_FLOWER) == 6) {
+        if (counts.get(Material.REDSTONE) == (2 * RECIPES) && counts.get(Material.DIAMOND) == (2 * RECIPES) && counts.get(Material.YELLOW_FLOWER) == (2 * RECIPES)) {
             System.out.print("Crafting started!");
             visualeffect(portalBlock);
             // Reset counts
@@ -105,7 +107,7 @@ public class PortalTrade extends JavaPlugin implements Listener {
 
             portalBlock.getWorld().dropItem(portalBlock.getLocation(), new ItemStack(Material.GLOWSTONE_DUST, 1));
             removeItems(portalBlock, loc);
-        } else if (counts.get(Material.REDSTONE) > 6 || counts.get(Material.DIAMOND) > 6 || counts.get(Material.YELLOW_FLOWER ) > 6) {
+        } else if (counts.get(Material.REDSTONE) > (2 * RECIPES) || counts.get(Material.DIAMOND) > (2 * RECIPES) || counts.get(Material.YELLOW_FLOWER ) > (2 * RECIPES)) {
             portalBlock.getWorld().createExplosion(loc, 3, true);
         }
     }
@@ -124,7 +126,7 @@ public class PortalTrade extends JavaPlugin implements Listener {
             }
         }
 
-        if (counts.get(Material.STONE) == 96) {
+        if (counts.get(Material.STONE) == (32 * RECIPES)) {
             System.out.printf("Crafting started!");
             visualeffect(portalBlock);
             // Reset counts
@@ -151,7 +153,7 @@ public class PortalTrade extends JavaPlugin implements Listener {
             }
         }
 
-        if (counts.get(Material.OBSIDIAN) == 6 && counts.get(Material.SAND) == 6) {
+        if (counts.get(Material.OBSIDIAN) == (2 * RECIPES) && counts.get(Material.SAND) == (2 * RECIPES)) {
             System.out.printf("Crafting started!");
             visualeffect(portalBlock);
             // Reset counts
@@ -160,7 +162,7 @@ public class PortalTrade extends JavaPlugin implements Listener {
 
             portalBlock.getWorld().dropItem(portalBlock.getLocation(), new ItemStack(Material.SOUL_SAND, 1));
             removeItems(portalBlock, loc);
-        } else if (counts.get(Material.OBSIDIAN) > 6 || counts.get(Material.SAND) > 6) {
+        } else if (counts.get(Material.OBSIDIAN) > (2 * RECIPES) || counts.get(Material.SAND) > (2 * RECIPES)) {
             portalBlock.getWorld().createExplosion(loc, 3, true);
         }
     }
