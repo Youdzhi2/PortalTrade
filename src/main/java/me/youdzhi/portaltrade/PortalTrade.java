@@ -97,7 +97,7 @@ public class PortalTrade extends JavaPlugin implements Listener {
             }
         }
 
-        if (counts.get(Material.REDSTONE) == (2 * RECIPES) && counts.get(Material.DIAMOND) == (2 * RECIPES) && counts.get(Material.YELLOW_FLOWER) == (2 * RECIPES)) {
+        if (counts.get(Material.REDSTONE) == 2 && counts.get(Material.DIAMOND) == 2 && counts.get(Material.YELLOW_FLOWER) == 2) {
             System.out.print("Crafting started!");
             visualeffect(portalBlock);
             // Reset counts
@@ -107,8 +107,8 @@ public class PortalTrade extends JavaPlugin implements Listener {
 
             portalBlock.getWorld().dropItem(portalBlock.getLocation(), new ItemStack(Material.GLOWSTONE_DUST, 1));
             removeItems(portalBlock, loc);
-        } else if (counts.get(Material.REDSTONE) > (2 * RECIPES) || counts.get(Material.DIAMOND) > (2 * RECIPES) || counts.get(Material.YELLOW_FLOWER ) > (2 * RECIPES)) {
-            portalBlock.getWorld().createExplosion(loc, 3, true);
+        } else if (counts.get(Material.REDSTONE) > 2 || counts.get(Material.DIAMOND) > 2 || counts.get(Material.YELLOW_FLOWER ) > 2) {
+            portalBlock.getWorld().createExplosion(loc, 1, true);
         }
     }
 
@@ -126,7 +126,7 @@ public class PortalTrade extends JavaPlugin implements Listener {
             }
         }
 
-        if (counts.get(Material.STONE) == (32 * RECIPES)) {
+        if (counts.get(Material.STONE) == (32 * (RECIPES - 1))) {
             System.out.printf("Crafting started!");
             visualeffect(portalBlock);
             // Reset counts
@@ -134,7 +134,7 @@ public class PortalTrade extends JavaPlugin implements Listener {
 
             portalBlock.getWorld().dropItem(portalBlock.getLocation(), new ItemStack(Material.NETHERRACK, 1));
             removeItems(portalBlock, loc);
-        } else if (counts.get(Material.STONE) > 96) {
+        } else if (counts.get(Material.STONE) > (32 * (RECIPES-1))) {
             portalBlock.getWorld().createExplosion(loc, 3, true);
         }
     }
