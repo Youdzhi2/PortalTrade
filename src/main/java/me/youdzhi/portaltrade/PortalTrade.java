@@ -66,11 +66,7 @@ public class PortalTrade extends JavaPlugin implements Listener {
     public void DropItem(PlayerDropItemEvent drop) {
         Item dropitem = drop.getItemDrop();
         Location loc = dropitem.getLocation();
-        System.out.print("Dropped Item! ");
-        System.out.print(dropitem.toString());
-        System.out.print(" At: ");
-        System.out.print(String.valueOf(loc));
-        System.out.print(loc.getBlock().toString());
+       
 
         Bukkit.getScheduler().scheduleSyncDelayedTask(this, () -> {
             RecipeGlowstone(drop.getItemDrop().getLocation().getBlock(), loc);
@@ -92,13 +88,11 @@ public class PortalTrade extends JavaPlugin implements Listener {
                 Material matblock = entity.getLocation().getBlock().getType();
                 if (matblock.toString().equals("PORTAL")) {
                     counts.put(itemStack.getType(), counts.get(itemStack.getType()) + itemStack.getAmount());
-                    System.out.printf(String.valueOf(counts));
                 }
             }
         }
 
         if (counts.get(Material.REDSTONE) == 2 && counts.get(Material.DIAMOND) == 2 && counts.get(Material.YELLOW_FLOWER) == 2) {
-            System.out.print("Crafting started!");
             visualeffect(portalBlock);
             // Reset counts
             counts.put(Material.REDSTONE, 0);
@@ -121,13 +115,11 @@ public class PortalTrade extends JavaPlugin implements Listener {
                 Material matblock = entity.getLocation().getBlock().getType();
                 if (matblock.toString().equals("PORTAL")) {
                     counts.put(itemStack.getType(), counts.get(itemStack.getType()) + itemStack.getAmount());
-                    System.out.printf(String.valueOf(counts));
                 }
             }
         }
 
         if (counts.get(Material.STONE) == (32 * (RECIPES - 1))) {
-            System.out.printf("Crafting started!");
             visualeffect(portalBlock);
             // Reset counts
             counts.put(Material.STONE, 0);
@@ -148,13 +140,11 @@ public class PortalTrade extends JavaPlugin implements Listener {
                 Material matblock = entity.getLocation().getBlock().getType();
                 if (matblock.toString().equals("PORTAL")) {
                     counts.put(itemStack.getType(), counts.get(itemStack.getType()) + itemStack.getAmount());
-                    System.out.printf(String.valueOf(counts));
                 }
             }
         }
 
         if (counts.get(Material.OBSIDIAN) == (2 * RECIPES) && counts.get(Material.SAND) == (2 * RECIPES)) {
-            System.out.printf("Crafting started!");
             visualeffect(portalBlock);
             // Reset counts
             counts.put(Material.OBSIDIAN, 0);
